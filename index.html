@@ -1,49 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MedVoiceAfrica</title>
   <!-- Link to generated Tailwind CSS -->
   <link href="styles/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <style>
     /* Custom styles for the first section */
-    .first-section {
+    .hero-section {
       background-image: url('./images/firstpage.JPG');
+    }
+    /* .intro-section {
+      background-image: url('./images/content.JPG');
+    } */
+    .content-section {
+      background-image: url('./images/content.JPG');
+    }
+    .hero-section,
+    .intro-section,
+    .final-cta-section,
+    .community-section,
+    .content-section,
+    .footer-section {
       background-size: cover;
       background-position: center;
       color: #333;
     }
+    button {
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .slide, .border-slider {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      z-index: 0;
+      transition: color 0.3s ease;
+    }
+
+    .slide:hover {
+      color: white;
+    }
+    .slide::before, .border-slider::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: blue;
+      z-index: -1;
+      transition: transform 0.4s ease;
+    }
+    .border-slider::before {
+      background: transparent;
+      border-bottom: 2px solid blue;
+      border-radius: 9999px;
+    }
+
+    .slide:hover::before, .border-slider:hover::before {
+      transform: scaleX(1);
+    }
   </style>
 </head>
-<body>
-  <section class="first-section min-h-screen flex flex-col">
-    <header class="flex justify-between items-center p-4 gap-x-2">
+<body class="bg-white text-gray-800">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
       <div>
         <img src="images/mvdlogo.JPG" alt="mvdlogo" class="h-12 md:hidden">
         <h1 class="text-2xl font-bold hidden md:block">MedVoiceAfrica</h1>
       </div>
-      <nav class="flex justify-between items-center gap-x-1 text-sm font-medium">
-        <span><a href="#" class="">Home</a></span>
-        <span><a href="#" class="">About</a></span>
-        <span><a href="#" class="">Contact</a></span>
-        <span><a href="#" class="">Blog</a></span>
-      </nav>
-      <div>
-        <button class="bg-blue-700 text-sm text-white px-4 py-2 rounded">Login/Sign Up</button>
+      <div class="flex justify-between items-center gap-x-1 text-sm font-medium md:hidden">
+        <span><a href="index.html" class="text-blue-700 border-b-blue-400 border-b-2">Home</a></span>
+        <span><a href="about.html" class="text-blue-700 border-b-blue-400 border-b-2">About</a></span>
+        <span><a href="contact.html" class="text-blue-700 border-b-blue-400 border-b-2">Contact</a></span>
+        <span><a href="blog.html" class="text-blue-700 border-b-blue-400 border-b-2">Blog</a></span>
       </div>
-    </header>
-    <main class="text-center flex flex-col items-center gap-y-4 mt-30">
-      <h2 class="text-[28px] font-bold">The Voice of Health, Growth and Purpose in Africa</h2>
-      <p>Empowering lives through medicine, mindset and leadership.</p>
-      <div>
-        <button class="bg-blue-700 text-sm font-bold text-white px-4 py-2 rounded">Join the Community</button>
-        <button class="text-sm text-blue-800 font-bold px-4 py-2 rounded border border-blue-700">Explore Content</button>
+      <div class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="index.html" class="border-slider text-blue-700 px-2">Home</a>
+        <a href="student-hub.html" class="border-slider px-2">Student Hub</a>
+        <a href="mind-life.html" class="border-slider  px-2">Mind & Life</a>
+        <a href="public-health.html" class="border-slider  px-2">Public Health</a>
+        <a href="blog.html" class="border-slider  px-2">Blog</a>
+        <a href="about.html" class="border-slider  px-2">About</a>
       </div>
-    </main>
+
+      <button class="bg-blue-700 text-white px-4 py-2 rounded text-sm">
+        Login
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero-section min-h-screen flex items-center" data-aos="fade-up" data-aos-duration="1000">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <h1 class="text-4xl md:text-5xl font-bold">
+        The Voice of Health, Growth and Purpose
+      </h1>
+
+      <p class="mt-4 text-lg text-gray-600">
+        Empowering lives through medicine, mindset and leadership.
+      </p>
+
+      <div class="mt-8 flex justify-center gap-4">
+        <button class="bg-blue-700 text-white px-6 py-3 rounded">
+          Join Community
+        </button>
+
+        <button class="slide border border-blue-700 text-blue-700 px-6 py-3 rounded">
+          Explore Content
+        </button>
+      </div>
+
+    </div>
   </section>
-  <footer>
-    @2024 MedVoiceAfrica. All rights reserved.
-  </footer>
+
+
+  <!-- INTRO SECTION -->
+  <section class="intro-section py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl font-bold">
+        Welcome to MedVoiceAfrica
+      </h2>
+
+      <p class="mt-4 text-gray-600">
+        MedVoiceAfrica is a growing platform committed to sharing
+        knowledge, promoting personal growth and encouraging leadership
+        within the health community across the world.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- CONTENT CATEGORIES -->
+  <section class="content-section py-20" data-aos="slide-right" data-aos-duration="1000">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <h2 class="text-3xl font-bold text-center">
+        Explore Our Content
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+
+        <div class="shadow rounded p-6">
+          <h3 class="font-bold text-xl">Student Hub</h3>
+          <p class="text-sm mt-2">
+            Study resources, tips and guidance for students
+            pursuing careers in medicine and health sciences.
+          </p>
+        </div>
+
+        <div class="shadow rounded p-6">
+          <h3 class="font-bold text-xl">Mind & Life</h3>
+          <p class="text-sm mt-2">
+            Insights on mindset, productivity and personal
+            growth to help you live with purpose.
+          </p>
+        </div>
+
+        <div class="shadow rounded p-6">
+          <h3 class="font-bold text-xl">Public Health</h3>
+          <p class="text-sm mt-2">
+            Articles that promote health awareness and
+            community wellbeing.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMMUNITY SECTION -->
+  <section class="community-section py-20">
+
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl font-bold">
+        Join the MedVoiceAfrica Community
+      </h2>
+
+      <p class="mt-4 text-gray-600">
+        Connect with students, health professionals and
+        leaders who are passionate about growth,
+        learning and improving healthcare.
+      </p>
+
+      <button class="mt-6 bg-blue-700 text-white px-6 py-3 rounded">
+        Join the Community
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="final-cta-section py-20 bg-blue-700 text-white text-center">
+
+    <h2 class="text-3xl font-bold">
+      Start Your Journey with MedVoiceAfrica
+    </h2>
+
+    <p class="mt-4">
+      Explore insights, grow your mindset and become
+      part of a community focused on health and impact.
+    </p>
+
+    <div class="mt-6 flex justify-center gap-4">
+
+      <button class="slide bg-white text-blue-700 px-6 py-3 rounded">
+        Explore Content
+      </button>
+
+      <button class="slide border border-white px-6 py-3 rounded">
+        Join Community
+      </button>
+
+    </div>
+
+  </section>
+
+
+<!-- FOOTER -->
+<footer class="footer-section bg-gray-900 text-white py-10">
+
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h3 class="text-xl font-bold">MedVoiceAfrica</h3>
+
+    <p class="text-sm mt-3">
+      Empowering lives through medicine, mindset and leadership.
+    </p>
+
+    <p class="text-xs mt-6">
+      © 2026 MedVoiceAfrica. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
