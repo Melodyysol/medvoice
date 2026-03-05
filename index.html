@@ -4,16 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MedVoiceAfrica</title>
+  <!-- Link to generated Tailwind CSS -->
+  <link href="styles/output.css" rel="stylesheet">
+  <style>
+    /* Custom styles for the first section */
+    .first-section {
+      background-image: url('./images/firstpage.JPG');
+      background-size: cover;
+      background-position: center;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <header>
-
-  </header>
-  <main>
-
-  </main>
+  <section class="first-section min-h-screen flex flex-col">
+    <header class="flex justify-between items-center p-4 gap-x-2">
+      <div>
+        <img src="images/mvdlogo.JPG" alt="mvdlogo" class="h-12 md:hidden">
+        <h1 class="text-2xl font-bold hidden md:block">MedVoiceAfrica</h1>
+      </div>
+      <nav class="flex justify-between items-center gap-x-1 text-sm font-medium">
+        <span><a href="#" class="">Home</a></span>
+        <span><a href="#" class="">About</a></span>
+        <span><a href="#" class="">Contact</a></span>
+        <span><a href="#" class="">Blog</a></span>
+      </nav>
+      <div>
+        <button class="bg-blue-700 text-sm text-white px-4 py-2 rounded">Login/Sign Up</button>
+      </div>
+    </header>
+    <main class="text-center flex flex-col items-center gap-y-4 mt-30">
+      <h2 class="text-[28px] font-bold">The Voice of Health, Growth and Purpose in Africa</h2>
+      <p>Empowering lives through medicine, mindset and leadership.</p>
+      <div>
+        <button class="bg-blue-700 text-sm font-bold text-white px-4 py-2 rounded">Join the Community</button>
+        <button class="text-sm text-blue-800 font-bold px-4 py-2 rounded border border-blue-700">Explore Content</button>
+      </div>
+    </main>
+  </section>
   <footer>
-    
+    @2024 MedVoiceAfrica. All rights reserved.
   </footer>
 </body>
 </html>
