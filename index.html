@@ -3,34 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedVoiceAfrica is a platform empowering lives through medicine, mindset and leadership across Africa.">
   <title>MedVoiceAfrica</title>
   <!-- Link to generated Tailwind CSS -->
   <link href="styles/output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <style>
-    /* Custom styles for the first section */
     .hero-section {
       background-image: url('./images/firstpage.JPG');
     }
-    /* .intro-section {
-      background-image: url('./images/content.JPG');
-    } */
+
+    .hero-section::after, .content-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.7);
+    }
+  
     .content-section {
       background-image: url('./images/content.JPG');
     }
     .hero-section,
-    .intro-section,
-    .final-cta-section,
-    .community-section,
-    .content-section,
-    .footer-section {
+    .content-section {
       background-size: cover;
       background-position: center;
       color: #333;
+      position: relative;
     }
     button {
       cursor: pointer;
+      transition: all 0.3s ease;
     }
     button:hover {
       opacity: 0.9;
@@ -58,7 +61,7 @@
     }
     .border-slider::before {
       background: transparent;
-      border-bottom: 2px solid blue;
+      border-bottom: 2px solid black;
       border-radius: 9999px;
     }
 
@@ -75,24 +78,35 @@
 
       <div>
         <img src="images/mvdlogo.JPG" alt="mvdlogo" class="h-12 md:hidden">
-        <h1 class="text-2xl font-bold hidden md:block">MedVoiceAfrica</h1>
+        <h1 class="animate-pulse text-2xl font-bold hidden md:block">MedVoiceAfrica</h1>
       </div>
-      <div class="flex justify-between items-center gap-x-1 text-sm font-medium md:hidden">
-        <span><a href="index.html" class="text-blue-700 border-b-blue-400 border-b-2">Home</a></span>
-        <span><a href="about.html" class="text-blue-700 border-b-blue-400 border-b-2">About</a></span>
-        <span><a href="contact.html" class="text-blue-700 border-b-blue-400 border-b-2">Contact</a></span>
-        <span><a href="blog.html" class="text-blue-700 border-b-blue-400 border-b-2">Blog</a></span>
+      <!-- Mobile Menu -->
+
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="js-menu h-5 w-5 md:hidden" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>
+        <div class="absolute right-0 mt-2 w-48 p-2 bg-blue-600 rounded shadow-lg hidden md:hidden">
+          <a href="index.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">Home</a>
+          <a href="student-hub.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">Student Hub</a>
+          <a href="mind-life.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">Mind & Life</a>
+          <a href="public-health.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">Public Health</a>
+          <a href="about.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">About</a>
+          <a href="blog.html" class="block px-4 py-2 text-sm text-white hover:bg-gray-100 hover:text-black">Blog</a>
+        </div>
       </div>
+
       <div class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="index.html" class="border-slider text-blue-700 px-2">Home</a>
+        <a href="index.html" class="border-b-2 rounded-xl border-blue-700 text-blue-700 px-2">Home</a>
         <a href="student-hub.html" class="border-slider px-2">Student Hub</a>
         <a href="mind-life.html" class="border-slider  px-2">Mind & Life</a>
         <a href="public-health.html" class="border-slider  px-2">Public Health</a>
+        <a href="scholarships.html" class="border-slider  px-2">Scholarships</a>
         <a href="blog.html" class="border-slider  px-2">Blog</a>
         <a href="about.html" class="border-slider  px-2">About</a>
       </div>
 
-      <button class="bg-blue-700 text-white px-4 py-2 rounded text-sm">
+      <button class="hidden bg-blue-700 text-white px-4 py-2 rounded text-sm md:block">
         Login
       </button>
 
@@ -102,7 +116,7 @@
 
   <!-- HERO SECTION -->
   <section class="hero-section min-h-screen flex items-center" data-aos="fade-up" data-aos-duration="1000">
-    <div class="max-w-6xl mx-auto px-6 text-center">
+    <div class="max-w-6xl mx-auto px-6 text-center z-10 relative">
 
       <h1 class="text-4xl md:text-5xl font-bold">
         The Voice of Health, Growth and Purpose
@@ -147,37 +161,45 @@
   <!-- CONTENT CATEGORIES -->
   <section class="content-section py-20" data-aos="slide-right" data-aos-duration="1000">
 
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6 z-10 relative">
 
       <h2 class="text-3xl font-bold text-center">
         Explore Our Content
       </h2>
 
-      <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
-        <div class="shadow rounded p-6">
+        <a href="student-hub.html" class="slide shadow rounded p-6 hover:shadow-xl transition duration-300">
           <h3 class="font-bold text-xl">Student Hub</h3>
           <p class="text-sm mt-2">
             Study resources, tips and guidance for students
             pursuing careers in medicine and health sciences.
           </p>
-        </div>
+        </a>
 
-        <div class="shadow rounded p-6">
+        <a href="mind-life.html" class="slide shadow rounded p-6 hover:shadow-xl transition duration-300">
           <h3 class="font-bold text-xl">Mind & Life</h3>
           <p class="text-sm mt-2">
             Insights on mindset, productivity and personal
             growth to help you live with purpose.
           </p>
-        </div>
+        </a>
 
-        <div class="shadow rounded p-6">
+        <a href="public-health.html" class="slide shadow rounded p-6 hover:shadow-xl transition duration-300">
           <h3 class="font-bold text-xl">Public Health</h3>
           <p class="text-sm mt-2">
-            Articles that promote health awareness and
+            Articles and videos that promote health awareness and
             community wellbeing.
           </p>
-        </div>
+        </a>
+
+        <a href="scholarships.html" class="slide shadow rounded p-6 hover:shadow-xl transition duration-300">
+          <h3 class="font-bold text-xl">Scholarships</h3>
+          <p class="text-sm mt-2">
+            Information on scholarships, grants and funding
+            opportunities for students and professionals.
+          </p>
+        </a>
 
       </div>
 
@@ -187,7 +209,7 @@
 
 
   <!-- COMMUNITY SECTION -->
-  <section class="community-section py-20">
+  <section class="community-section py-20" data-aos="slide-left" data-aos-duration="1000">
 
     <div class="max-w-4xl mx-auto px-6 text-center">
 
@@ -211,7 +233,7 @@
 
 
   <!-- FINAL CTA -->
-  <section class="final-cta-section py-20 bg-blue-700 text-white text-center">
+  <section class="final-cta-section py-20 bg-blue-700 text-white text-center" data-aos="fade-up" data-aos-duration="1000">
 
     <h2 class="text-3xl font-bold">
       Start Your Journey with MedVoiceAfrica
@@ -255,9 +277,7 @@
   </div>
 
 </footer>
-
-</body>
-</html>
+  <script type="module" src="dist/index.js"></script>
   <script>
     AOS.init();
   </script>
